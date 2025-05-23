@@ -180,6 +180,8 @@
 
             .about-text {
                 text-align: center;
+                font-size: 1.2rem !important;
+                line-height: 1.6 !important;
             }
 
             .nav-links {
@@ -192,21 +194,27 @@
                 overflow-x: hidden;
                 margin: 0;
                 padding: 0;
+                position: relative;
             }
 
             .value-row {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-
-            .value-left {
-                width: 100%;
-                margin-bottom: 1rem;
+                text-align: left;
             }
 
             .value-left,
             .value-right {
                 width: 100% !important;
+                text-align: left !important;
+            }
+
+            .scroll-line {
+                left: auto !important;
+                right: 0 !important;
+                width: 2px !important;
+                height: 300px !important;
+
             }
 
             .crafted-intention h2 {
@@ -249,29 +257,26 @@
                 padding: 0.75rem;
             }
 
-            /* Make the process grid horizontally scrollable and cards as carousel slides */
             #process .grid {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                display: flex;
-                gap: 1rem;
-                padding-bottom: 1rem;
-                scroll-behavior: smooth;
-                touch-action: pan-x;
-            }
-
-            #process .grid::-webkit-scrollbar {
-                display: none;
+                flex-wrap: wrap;
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0;
             }
 
             #process .card {
-                flex: 0 0 80%;
-                min-width: 250px;
-                scroll-snap-align: start;
-                margin-right: 1rem;
+                flex: 1 1 100%;
+                min-width: unset;
+                margin-right: 0;
+                text-align: center;
+                align-items: center;
             }
+
+            .step-icon {
+                height: 40px;
+                margin-bottom: 0.5rem;
+            }
+
         }
 
         /* --- Responsive: Very Wide Screens --- */
@@ -902,22 +907,22 @@
                 <p style="margin: 0;">Strategy We’ll map out the story, choose the right voice, and prep the shoot.</p>
             </div>
             <div class="card">
-                <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/video.svg" alt="Production"
-                    class="step-icon" />
+                <img src="https://raw.githubusercontent.com/feathericons/feather/master/icons/video.svg"
+                    alt="Production" class="step-icon" />
                 <p style="color: var(--accent);" class="card-title">03</p>
                 <h3 class="card-title">Production</h3>
                 <p style="margin: 0;">On-location filming and guided interviews to capture the real story.</p>
             </div>
             <div class="card">
-                <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/send.svg" alt="Delivery"
+                <img src="https://raw.githubusercontent.com/feathericons/feather/master/icons/send.svg" alt="Delivery"
                     class="step-icon" />
                 <p style="color: var(--accent);" class="card-title">04</p>
                 <h3 class="card-title">Delivery</h3>
                 <p style="margin: 0;">Final videos delivered, ready to use across web, sales, and social.</p>
             </div>
             <div class="card">
-                <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/trending-up.svg" alt="Growth"
-                    class="step-icon" />
+                <img src="https://raw.githubusercontent.com/feathericons/feather/master/icons/trending-up.svg"
+                    alt="Growth" class="step-icon" />
                 <p style="color: var(--accent);" class="card-title">05</p>
                 <h3 class="card-title">Growth</h3>
                 <p style="margin: 0;">Watch trust turn into traction as your clients do the talking.</p>
@@ -1232,7 +1237,7 @@
 
         const activeTop = valueRows[activeIndex].offsetTop;
         const activeHeight = valueRows[activeIndex].offsetHeight;
-        scrollLine.style.top = activeTop + 'px';
+        scrollLine.style.top = (activeTop + 6) + 'px';
         scrollLine.style.height = activeHeight + 'px';
         scrollLine.style.background = colors[activeIndex % colors.length];
     }
